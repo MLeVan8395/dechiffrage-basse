@@ -31,12 +31,12 @@
 const STYLES=[
 {id:"rock",t:"Rock",acc:"pop",son:"eb",swing:false,tenir:4,accords:["","m","7"],
  intro:"En rock, la basse joue serré avec la grosse caisse : la fondamentale d'abord, en valeurs régulières, puis la quinte, l'octave et quelques notes de passage pour amener l'accord suivant.",
- niveaux:["Rondes et blanches : la fondamentale","Noires : fondamentale, quinte, octave","Croches : la pompe","Octaves, notes de passage et syncopes"],
+ niveaux:["Rondes et blanches : fondamentale et quinte","Noires : fondamentale, quinte, octave","Croches : la pompe","Octaves, notes de passage et syncopes"],
  formules:[
   {niv:1,n:"1.48"},
   {niv:1,n:"1.24 1.24"},
-  {niv:1,n:"1.36 1.12"},
-  {niv:1,n:"1.24 r.12 1.12"},
+  {niv:2,n:"1.36 1.12"},
+  {niv:2,n:"1.24 r.12 1.12"},
   {niv:1,n:"1.24 5.24"},
   {niv:2,n:"1.12 1.12 1.12 1.12"},
   {niv:2,n:"1.12 1.12 5.12 5.12"},

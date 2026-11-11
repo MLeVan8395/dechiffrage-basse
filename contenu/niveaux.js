@@ -49,7 +49,7 @@ notes:[
  {t:"Tout le manche, toutes les valeurs rythmiques, changements d'armure en cours de route", zones:["p0","p2","p5","p7","p9"], armures:"change", rythme:8, intervalle:7, articulations:"mix"}
 ],
 lignes:[
- {t:"Rock, rondes et blanches sur la fondamentale, en C, G ou D", style:"rock", formules:1, armures:[0,1,2], zone:"bas"},
+ {t:"Rock, rondes et blanches : fondamentale et quinte, en C, G ou D", style:"rock", formules:1, armures:[0,1,2], zone:"bas"},
  {t:"Rock, noires : fondamentale, quinte, octave, en C, G, D ou A", style:"rock", formules:2, armures:[0,1,2,3], zone:"bas"},
  {t:"Reggae, noires et silences, en C, G ou F", style:"reggae", formules:1, armures:[0,1,-1], zone:"bas"},
  {t:"Jazz à la blanche (two-feel), en C, F ou B♭", style:"jazz", formules:1, armures:[0,-1,-2], zone:"bas"},

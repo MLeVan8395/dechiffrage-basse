@@ -142,6 +142,7 @@ label.chk input{width:18px;height:18px;accent-color:var(--accent)}
       </div>
       <label class="f" style="flex-direction:row;align-items:center;gap:8px">Croches <select id="gFeel"><option value="0">Droites</option><option value="1">Swing (ternaires)</option></select></label>
       <label class="chk"><input type="checkbox" id="gClic24"> Clic sur 2 et 4</label>
+      <label class="chk"><input type="checkbox" id="gHideFb"> Masquer le manche</label>
       <button type="button" class="primary" id="gGo">▶ Démarrer</button>
     </div>
     <div class="stage">
@@ -160,7 +161,7 @@ label.chk input{width:18px;height:18px;accent-color:var(--accent)}
 </section>
 
 </main>
-<footer class="meta" style="max-width:1100px;margin:0 auto;padding:0 20px 30px;text-align:center">Déchiffrage Basse · <span id="appver">version 1</span> · © 2026 Mickael Le Van<br><span style="font-size:12px">Sons : basse <a href="https://www.karoryfer.com/karoryfer-samples" target="_blank" rel="noopener">Karoryfer Samples</a> (CC BY 3.0) · batterie Virtuosity Drums et contrebasse <a href="https://github.com/sgossner/VSCO-2-CE" target="_blank" rel="noopener">VSCO 2</a> (CC0)</span></footer>
+<footer class="meta" style="max-width:1100px;margin:0 auto;padding:0 20px 30px;text-align:center">Déchiffrage Basse · <span id="appver">version 2</span> · © 2026 Mickael Le Van<br><span style="font-size:12px">Sons : basse <a href="https://www.karoryfer.com/karoryfer-samples" target="_blank" rel="noopener">Karoryfer Samples</a> (CC BY 3.0) · batterie Virtuosity Drums et contrebasse <a href="https://github.com/sgossner/VSCO-2-CE" target="_blank" rel="noopener">VSCO 2</a> (CC0)</span></footer>
 <script src="contenu/lignes.js"></script>
 <script src="contenu/niveaux.js"></script>
 <script>
@@ -438,7 +439,7 @@ function startGame(g){
         const held=list.length?null:g.items(Math.floor(s0/L)+1); // rien ne change à la mesure suivante : on annonce le prochain changement
         at(t,()=>g.announce(list,b<0,held));}
       if(step<count){
-        if(step%sub===0){const n=bpb-step/sub;at(t,()=>{if(g.announce){$('gLab').textContent='Décompte';$('gNow').className='now wait';$('gNow').textContent=n;$('gWhere').textContent='';return;}$('gNow').className='now wait';$('gNow').textContent=n;$('gWhere').textContent='Décompte';$('gNext').innerHTML='Pour commencer : <b>'+esc(g.label(item))+'</b>';});}
+        if(step%sub===0){const n=bpb-step/sub;at(t,()=>{if(g.announce){$('gLab').textContent='Décompte';$('gNow').className='now wait';$('gNow').textContent=n;$('gWhere').textContent='';return;}$('gLab').textContent='Décompte';$('gNow').className='now wait';$('gNow').textContent=n;$('gWhere').textContent='';$('gNext').innerHTML='Pour commencer : <b>'+esc(g.label(item))+'</b>';});}
         if(step===0&&g.prepare)at(t,()=>g.prepare(item));
       }else{
         if(k===0){const it=item,nx=nextItem;at(t,()=>g.show(it,nx));
@@ -797,7 +798,7 @@ GAMES.push({id:'lecture',titre:'Lecture de notes',
       prepare:n=>{$('gStaff').innerHTML=drawStaff(get,0,key,chrom,swing,false,met);board(n,false);
         $('gInfo').textContent=P?(P.transpo?P.t+', en '+tonName(P,P.sig)+'. Elle reprend au début quand elle est terminée.':P.info||P.c+', '+P.t+', '+P.ref+', '+P.mes+'. Le passage reprend au début quand il est terminé.'):LVL?'Cette fois : '+(chrom?'plusieurs tonalités':'tonalité de '+key[0])+' · '+A[1].split(' : ')[0].replace(' (cases 0 à 12)','')+'.':'';},
       show:(n)=>{const idx=n.i;$('gStaff').innerHTML=drawStaff(get,idx,key,chrom,swing,false,met);
-        $('gLab').textContent='Mesure';$('gNow').className='now cur';$('gNow').textContent=n.bar+1;$('gWhere').textContent=(n.rest?'Silence':'Lis la note en corail')+(n.ton?' · ton de '+n.ton:'');$('gNext').innerHTML='';board(n,false);},
+        $('gLab').textContent='Mesure';$('gNow').className='now cur';$('gNow').textContent=n.bar+1;$('gWhere').textContent='';$('gNext').innerHTML='';board(n,false);},
       revealFrac:revealFracOpt(),
       reveal:n=>{if(+val('gRev')<0||n.rest)return;board(n,true);}, // la réponse se lit sur le manche, sans texte
       step:(n,k,t,dur,r)=>{
@@ -928,7 +929,7 @@ GAMES.push({id:'lignes',titre:'Lignes de basse',
       prepare:n=>{$('gStaff').innerHTML=drawStaff(get,0,key,false,swing,false,[4,4]);board(n,false);
         const G=mes[0].G;$('gInfo').textContent='Cette fois : '+S.t+' · '+S.niveaux[niv-1].split(' : ')[0].toLowerCase()+' · grille '+G.t.replace(/ \(mineur\)$/,'')+', en '+tonOf(G)+'. '+S.intro;},
       show:n=>{$('gStaff').innerHTML=drawStaff(get,n.i,key,false,swing,false,[4,4]);
-        $('gLab').textContent='Mesure';$('gNow').className='now cur';$('gNow').textContent=n.bar+1;$('gWhere').textContent=(n.rest?'Silence':n.ghost?'Ghost note (étouffée)':'Lis la note en corail')+' · accord '+n.chord.name;$('gNext').innerHTML='';board(n,false);},
+        $('gLab').textContent='Mesure';$('gNow').className='now cur';$('gNow').textContent=n.bar+1;$('gWhere').textContent='';$('gNext').innerHTML='';board(n,false);},
       revealFrac:revealFracOpt(),
       reveal:n=>{if(+val('gRev')<0||n.rest)return;board(n,true);},
       step:(n,k,t,dur,r)=>{
@@ -986,7 +987,7 @@ function start(){
   const warm=()=>{ctx();document.removeEventListener('pointerdown',warm);};document.addEventListener('pointerdown',warm);
   showTempo();setBeats(4,-1);
   $('gFeel').value=SWING?'1':'0';$('gFeel').onchange=e=>{SWING=e.target.value==='1';store.set('swing',SWING?'1':'0');if(RUN.on)stopGame();preview();};
-  $('gClic24').checked=CLIC24;$('gClic24').onchange=e=>{CLIC24=e.target.checked;store.set('clic24',CLIC24?'1':'0');};
+  $('gHideFb').checked=store.get('hidefb','0')==='1';$('gBoard').hidden=$('gHideFb').checked;$('gHideFb').onchange=e=>{store.set('hidefb',e.target.checked?'1':'0');$('gBoard').hidden=e.target.checked;};$('gClic24').checked=CLIC24;$('gClic24').onchange=e=>{CLIC24=e.target.checked;store.set('clic24',CLIC24?'1':'0');};
   document.querySelectorAll('.tempo [data-t]').forEach(b=>b.onclick=()=>setTempo(b.dataset.t));
   $('bpmMinus').onclick=()=>{BPMV=Math.max(30,BPMV-5);store.set('bpm',BPMV);showTempo();};
   $('bpmPlus').onclick=()=>{BPMV=Math.min(240,BPMV+5);store.set('bpm',BPMV);showTempo();};

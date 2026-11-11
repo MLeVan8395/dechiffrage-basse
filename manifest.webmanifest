@@ -1,0 +1,29 @@
+{
+  "name": "Déchiffrage Basse",
+  "short_name": "Déchiffrage B.",
+  "description": "Lecture de notes en clé de Fa et lignes de basse rock, reggae, funk et jazz, toujours au métronome.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151c",
+  "theme_color": "#19202a",
+  "icons": [
+    {
+      "src": "icones/icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icones/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icones/icone-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

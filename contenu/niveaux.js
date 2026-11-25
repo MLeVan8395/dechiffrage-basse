@@ -20,7 +20,7 @@
 //    articulations: "none", "stacc" (piqué), "acc" (accent), "marc" (chevron), "mix" (mélangées)
 //
 //  LIGNES DE BASSE (formules et grilles de contenu/lignes.js)
-//    style        : "rock", "reggae", "funk" ou "jazz"
+//    style        : "rock", "country", "reggae", "funk", "disco" ou "jazz"
 //    formules     : difficulté des formules dans ce style, de 1 à 4 (voir « niveaux » dans contenu/lignes.js)
 //    armures      : comme ci-dessus ; la grille est transposée dans la tonalité tirée au sort
 //    zone         : "bas" = bas du manche (cordes à vide, cases 1 à 5), "milieu" = cases 2 à 9, sans corde à vide
@@ -51,19 +51,27 @@ notes:[
 lignes:[
  {t:"Rock, rondes et blanches : fondamentale et quinte, en C, G ou D", style:"rock", formules:1, armures:[0,1,2], zone:"bas"},
  {t:"Rock, noires : fondamentale, quinte, octave, en C, G, D ou A", style:"rock", formules:2, armures:[0,1,2,3], zone:"bas"},
+ {t:"Country, blanches : le two-beat (fondamentale et quinte), en C, G ou D", style:"country", formules:1, armures:[0,1,2], zone:"bas"},
  {t:"Reggae, noires et silences, en C, G ou F", style:"reggae", formules:1, armures:[0,1,-1], zone:"bas"},
+ {t:"Disco, noires : fondamentale et octave, en C, G ou F", style:"disco", formules:1, armures:[0,1,-1], zone:"bas"},
  {t:"Jazz à la blanche (two-feel), en C, F ou B♭", style:"jazz", formules:1, armures:[0,-1,-2], zone:"bas"},
  {t:"Rock, la pompe en croches, jusqu'à 3 altérations", style:"rock", formules:3, armures:[0,1,2,3,-1,-2], zone:"bas"},
+ {t:"Country, noires : fondamentale, quinte en dessous et tierce, en C, G, D ou A", style:"country", formules:2, armures:[0,1,2,3], zone:"bas"},
  {t:"Reggae, croches : fondamentale, tierce, quinte, en C, G, F ou D", style:"reggae", formules:2, armures:[0,1,-1,2], zone:"bas"},
  {t:"Jazz, walking en noires (arpèges et gamme), en C, F ou B♭", style:"jazz", formules:2, armures:[0,-1,-2], zone:"bas"},
  {t:"Funk, croches et silences, le premier temps et l'octave, en C, G ou F", style:"funk", formules:1, armures:[0,1,-1], zone:"bas"},
+ {t:"Disco, les octaves en croches, jusqu'à 2 altérations", style:"disco", formules:2, armures:[0,1,-1,2,-2], zone:"bas"},
  {t:"Rock, octaves, notes de passage et syncopes, jusqu'à 3 altérations", style:"rock", formules:4, armures:[0,1,2,3,-1,-2,-3], zone:"bas"},
+ {t:"Country, walk-ups vers l'accord suivant, jusqu'à 3 dièses ou 1 bémol", style:"country", formules:3, armures:[0,1,2,3,-1], zone:"bas"},
  {t:"Reggae, lignes mélodiques avec octave et valeurs pointées, jusqu'à 2 altérations", style:"reggae", formules:3, armures:[0,1,-1,2,-2], zone:"bas"},
  {t:"Jazz, walking avec notes d'approche chromatiques, jusqu'à 3 bémols", style:"jazz", formules:3, armures:[0,-1,-2,-3], zone:"bas"},
  {t:"Funk, doubles croches et syncopette, en C, G, F ou D", style:"funk", formules:2, armures:[0,1,-1,2], zone:"bas"},
+ {t:"Disco, octaves, silences et notes de passage, jusqu'à 3 altérations", style:"disco", formules:3, armures:[0,1,-1,2,-2,3,-3], zone:"bas"},
  {t:"Rock au milieu du manche (sans corde à vide), toutes les formules, jusqu'à 4 altérations", style:"rock", formules:4, armures:[0,1,2,3,4,-1,-2,-3,-4], zone:"milieu"},
+ {t:"Country, la ligne qui roule en croches, jusqu'à 4 dièses ou 2 bémols", style:"country", formules:4, armures:[0,1,2,3,4,-1,-2], zone:"bas"},
  {t:"Reggae, triolets et doubles croches, jusqu'à 3 altérations", style:"reggae", formules:4, armures:[0,1,-1,2,-2,3,-3], zone:"bas"},
  {t:"Funk, ghost notes, jusqu'à 2 altérations", style:"funk", formules:3, armures:[0,1,-1,2,-2], zone:"milieu"},
+ {t:"Disco, doubles croches au milieu du manche, jusqu'à 3 altérations", style:"disco", formules:4, armures:[0,1,-1,2,-2,3,-3], zone:"milieu"},
  {t:"Jazz, walking avec croches swing et triolets, jusqu'à 4 bémols", style:"jazz", formules:4, armures:[0,-1,-2,-3,-4,1], zone:"bas"},
  {t:"Funk, doubles croches en continu et chromatismes, jusqu'à 3 altérations", style:"funk", formules:4, armures:[0,1,-1,2,-2,3,-3], zone:"milieu"},
  {t:"Jazz au milieu du manche, toutes les formules, dans toutes les tonalités jusqu'à 5 altérations", style:"jazz", formules:4, armures:[0,1,-1,2,-2,3,-3,4,-4,5,-5], zone:"milieu"}

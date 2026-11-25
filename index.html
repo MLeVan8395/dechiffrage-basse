@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Déchiffrage Basse</title>
-<meta name="description" content="Déchiffrage pour bassistes : lecture de notes en clé de Fa et lignes de basse rock, reggae, funk et jazz, toujours au métronome.">
+<meta name="description" content="Déchiffrage pour bassistes : lecture de notes en clé de Fa et lignes de basse rock, country, reggae, funk, disco et jazz, toujours au métronome.">
 <meta name="theme-color" content="#19202a">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icones/icone-192.png">
@@ -161,7 +161,7 @@ label.chk input{width:18px;height:18px;accent-color:var(--accent)}
 </section>
 
 </main>
-<footer class="meta" style="max-width:1100px;margin:0 auto;padding:0 20px 30px;text-align:center">Déchiffrage Basse · <span id="appver">version 3</span> · © 2026 Mickael Le Van<br><span style="font-size:12px">Sons : basse <a href="https://www.karoryfer.com/karoryfer-samples" target="_blank" rel="noopener">Karoryfer Samples</a> (CC BY 3.0) · batterie Virtuosity Drums et contrebasse <a href="https://github.com/sgossner/VSCO-2-CE" target="_blank" rel="noopener">VSCO 2</a> (CC0)</span></footer>
+<footer class="meta" style="max-width:1100px;margin:0 auto;padding:0 20px 30px;text-align:center">Déchiffrage Basse · <span id="appver">version 4</span> · © 2026 Mickael Le Van<br><span style="font-size:12px">Sons : basse <a href="https://www.karoryfer.com/karoryfer-samples" target="_blank" rel="noopener">Karoryfer Samples</a> (CC BY 3.0) · batterie Virtuosity Drums et contrebasse <a href="https://github.com/sgossner/VSCO-2-CE" target="_blank" rel="noopener">VSCO 2</a> (CC0)</span></footer>
 <script src="contenu/lignes.js"></script>
 <script src="contenu/niveaux.js"></script>
 <script>
@@ -319,6 +319,14 @@ function accomp(style,it,nx,k,t,dur,len){if(style&&style!=='none')ACC_T=t;
       if(p===4||p===12)dS('caisse',tt,.85);else if(p===7||p===14)dS('caisse-ghost',tt,.35);
       const bn=FUNK_BASS.find(z=>z[0]===p);if(bn)aB(r+(bn[2]===7?Q.fifth:bn[2]),tt,dur*bn[1]/4*.9,.9,'eb');}
     return;}
+  if(style==='country'){ // two-step : grosse caisse sur 1 et 3, caisse claire sur 2 et 4 ; le « chick » des accords sur 2 et 4
+    dS('hh-ferme',t,.4);dS('hh-doux',t+dur*.5,.28);
+    if(bb===0||bb===2)dS('kick',t,.85);else{dS('caisse',t,.7);if(!NOCH)organChord(it.pl.map(n=>n.m),t,dur*.28);}
+    return;}
+  if(style==='disco'){ // grosse caisse sur les quatre temps, caisse claire sur 2 et 4, charleston ouvert sur chaque contretemps
+    dS('kick',t,.9);if(bb===1||bb===3)dS('caisse',t,.8);
+    dS('hh-ferme',t,.3);dS('hh-ouvert',t+dur*.5,.42);
+    return;}
   if(style==='reggae'){ // one drop : rien sur le 1, grosse caisse et cross-stick sur le 3 ; skank d'orgue sur chaque contretemps
     dS('hh-ferme',t,.35);dS('hh-doux',t+dur*(SWING?2/3:.5),.25);
     if(bb===2){dS('kick',t,.9);dS('cross-stick',t,.8);}
@@ -398,7 +406,7 @@ function drawBoard(el,o){
 const BPM={lent:60,moyen:90,rapide:120};
 // Accompagnements : un son tenu (pad ou orgue) + basse et batterie ; le reggae a son skank au lieu du son tenu
 const ACCOPTS=[['none','Aucun : métronome seul'],['pop','Pop : pad, basse, batterie'],['funk','Funk : pad, basse, batterie'],['reggae','Reggae : skank, basse, batterie'],['swing2','Swing : orgue, contrebasse, batterie']];
-const ACCPAD={pop:'pad',funk:'pad',swing2:'orgue'};
+const ACCPAD={pop:'pad',funk:'pad',disco:'pad',swing2:'orgue'};
 // Articulation des croches en swing : la croche du temps est plus longue (liée) et plus douce,
 // celle du « et » plus courte et plus accentuée, surtout le « et » de 2 et de 4.
 function swingArt(beatInBar,off,beatDur){
@@ -908,11 +916,11 @@ function bassPlay(n,t,swing,get){const bd=60/BPMV,off=swing&&Math.abs(n.beat%1-.
   if(n.ghost){pluck(n.m,t+off,.5,.03);return;}
   let d=n.d;if(n.tieNext){const x=get(n.i+1);if(x&&x.tied)d+=x.d;}
   pluck(n.m,t+off,.56,swing&&n.d12===6&&!off?bd*2/3*.95:Math.max(.1,d*bd*.92-off));}
-// ===================== Lignes de basse : rock, reggae, funk, jazz =====================
+// ===================== Lignes de basse : rock, country, reggae, funk, disco, jazz =====================
 let NOCH=false; // accompagnement sans les accords (batterie seule)
 const SIG3=[0,1,-1,2,-2,3,-3],SIG5=SIG3.concat([4,-4,5,-5]);
 GAMES.push({id:'lignes',titre:'Lignes de basse',
-  desc:'Des lignes de basse à lire dans quatre styles : rock, reggae, funk et jazz. Les accords sont écrits au-dessus de la portée, et l\'accompagnement (batterie et accords) les suit : la basse, c\'est toi. « Niveaux » : une progression toute faite, des rondes sur la fondamentale jusqu\'au walking et aux ghost notes. « Réglages libres » : tu choisis le style, la difficulté, la grille et la tonalité.',
+  desc:'Des lignes de basse à lire dans six styles : rock, country, reggae, funk, disco et jazz. Les accords sont écrits au-dessus de la portée, et l\'accompagnement (batterie et accords) les suit : la basse, c\'est toi. « Niveaux » : une progression toute faite, des rondes sur la fondamentale jusqu\'au walking et aux ghost notes. « Réglages libres » : tu choisis le style, la difficulté, la grille et la tonalité.',
   opts:()=>{const S=STY.find(s=>s.id===store.get('g-gSty','rock'))||STY[0];
     return opt('gSty','Style',STY.map(s=>[s.id,s.t]),'rock')+opt('gFo','Difficulté',S.niveaux.map((t,i)=>[i+1,(i+1)+'. '+t]),1)
       +opt('gGr','Grille',[['rnd','Au hasard, une autre à chaque tour']].concat(S.grilles.map((g,i)=>[i,g.t])),'rnd')

@@ -1,6 +1,6 @@
 # Déchiffrage Basse
 
-Une appli gratuite de **déchiffrage pour bassistes** : lecture de notes en clé de Fa et lignes de basse dans quatre styles (rock, reggae, funk, jazz), toujours au métronome.
+Une appli gratuite de **déchiffrage pour bassistes** : lecture de notes en clé de Fa et lignes de basse dans six styles (rock, country, reggae, funk, disco, jazz), toujours au métronome.
 
 C'est la petite sœur de [Déchiffrage Guitare](https://mlevan8395.github.io/lecture-guitare/), conçue pour les élèves de basse musiques actuelles et jazz en conservatoire. Basse 4 cordes.
 
@@ -21,7 +21,7 @@ Chaque exercice se travaille de deux façons : par **niveaux** (une progression 
 | Onglet | Contenu |
 |---|---|
 | **Lecture de notes** | Partition générée au hasard, en position ou le long d'une corde, dans une tonalité (jusqu'à 5 dièses ou 5 bémols), avec modulations au relatif mineur et aux tons voisins, ou avec changements d'armure ; valeur rythmique la plus courte réglable (des rondes aux doubles croches), nombre d'attaques par mesure, intervalle maximal, articulations ; réponse affichée sur le manche |
-| **Lignes de basse** | Des lignes fabriquées à partir de formules propres à chaque style, sur une grille d'accords écrite au-dessus de la portée : rock (de la ronde à la pompe en croches, octaves, syncopes), reggae (silences, lignes mélodiques, triolets), funk (syncopette, ghost notes, doubles croches), jazz (two-feel, walking, notes d'approche, croches swing). Quatre difficultés par style, 12 tonalités, bas ou milieu du manche. La batterie et les accords accompagnent ; la basse, c'est l'élève |
+| **Lignes de basse** | Des lignes fabriquées à partir de formules propres à chaque style, sur une grille d'accords écrite au-dessus de la portée : rock (de la ronde à la pompe en croches, octaves, syncopes), country (two-beat, walk-ups, croches), reggae (silences, lignes mélodiques, triolets), funk (syncopette, ghost notes, doubles croches), disco (octaves en croches, notes de passage, doubles croches), jazz (two-feel, walking, notes d'approche, croches swing). Quatre difficultés par style, 12 tonalités, bas ou milieu du manche. La batterie et les accords accompagnent ; la basse, c'est l'élève |
 
 Tempo lent, moyen ou rapide, réglable de 5 en 5 ; croches droites ou swing, et clic sur 2 et 4 en option. Un bouton **Droitier / Gaucher** retourne le manche.
 
